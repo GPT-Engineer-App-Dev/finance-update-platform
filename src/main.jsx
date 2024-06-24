@@ -9,13 +9,27 @@ const colors = {
     800: "#153e75",
     700: "#2a69ac",
   },
+  background: "#f3ecd8" // Financial Times background color
 };
 
 const theme = extendTheme({ colors });
 
+import { Global, css } from "@emotion/react";
+
+const GlobalStyle = () => (
+  <Global
+    styles={css`
+      body {
+        background-color: ${colors.background};
+      }
+    `}
+  />
+);
+
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
     <ChakraProvider theme={theme}>
+      <GlobalStyle />
       <App />
     </ChakraProvider>
   </React.StrictMode>
